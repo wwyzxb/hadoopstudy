@@ -1,43 +1,99 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
-<!--
-  Licensed under the Apache License, Version 2.0 (the "License");
-  you may not use this file except in compliance with the License.
-  You may obtain a copy of the License at
-
-    http://www.apache.org/licenses/LICENSE-2.0
-
-  Unless required by applicable law or agreed to in writing, software
-  distributed under the License is distributed on an "AS IS" BASIS,
-  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-  See the License for the specific language governing permissions and
-  limitations under the License. See accompanying LICENSE file.
--->
-
-<!-- Put site-specific property overrides in this file. -->
-
+<?xml version="1.0"?>
 <configuration>
-  <!-- 指定hdfs的nameservices名称为mycluster，与hdfs-site.xml的HA配置相同 -->
   <property>
-    <name>fs.defaultFS</name>
-    <value>hdfs://mycluster</value>
+    <name>net.topology.script.file.name</name>
+    <value>/etc/ecm/hadoop-conf/rack-topology.sh</value>
   </property>
-	
-  <!-- 指定缓存文件存储的路径 -->
   <property>
-    <name>hadoop.tmp.dir</name>
-    <value>/data/hadoop/tmp</value>
+    <name>hadoop.proxyuser.hdfs.groups</name>
+    <value>*</value>
   </property>
-
-  <!-- 配置hdfs文件被永久删除前保留的时间（单位：分钟），默认值为0表明垃圾回收站功能关闭 -->
+  <property>
+    <name>hadoop.security.authentication.use.has</name>
+    <value>true</value>
+  </property>
   <property>
     <name>fs.trash.interval</name>
     <value>1440</value>
   </property>
-  
-  <!-- 指定zookeeper地址，配置HA时需要 -->
   <property>
-    <name>ha.zookeeper.quorum</name>
-    <value>slave1:2181,slave2:2181,slave3:2181</value>
+    <name>hadoop.proxyuser.hue.groups</name>
+    <value>*</value>
+  </property>
+  <property>
+    <name>io.compression.codecs</name>
+    <value>org.apache.hadoop.io.compress.DefaultCodec,org.apache.hadoop.io.compress.GzipCodec,org.apache.hadoop.io.compress.BZip2Codec,org.apache.hadoop.io.compress.DeflateCodec,org.apache.hadoop.io.compress.SnappyCodec,org.apache.hadoop.io.compress.Lz4Codec</value>
+  </property>
+  <property>
+    <name>hadoop.tmp.dir</name>
+    <value>/data/hadoop/tmp</value>
+  </property>
+  <property>
+    <name>hadoop.proxyuser.knox.hosts</name>
+    <value>*</value>
+  </property>
+  <property>
+    <name>fs.permissions.umask-mode</name>
+    <value>022</value>
+  </property>
+  <property>
+    <name>job.output.oss.redirect</name>
+    <value>false</value>
+  </property>
+  <property>
+    <name>hadoop.proxyuser.hue.hosts</name>
+    <value>*</value>
+  </property>
+  <property>
+    <name>net.topology.script.number.args</name>
+    <value>1000</value>
+  </property>
+  <property>
+    <name>fs.oss.sdk.dependency.path</name>
+    <value>/opt/apps/emr-libs/mns-library-1.1.5.jar</value>
+  </property>
+  <property>
+    <name>hadoop.proxyuser.knox.groups</name>
+    <value>*</value>
+  </property>
+  <property>
+    <name>fs.oss.core.dependency.path</name>
+    <value>/opt/apps/emr-libs/oss-library-2.2.0.jar</value>
+  </property>
+  <property>
+    <name>hadoop.proxyuser.hdfs.hosts</name>
+    <value>*</value>
+  </property>
+  <property>
+    <name>fs.trash.checkpoint.interval</name>
+    <value>30</value>
+  </property>
+  <property>
+    <name>fs.defaultFS</name>
+    <value>hdfs://emr-cluster</value>
+  </property>
+  <property>
+    <name>hadoop.proxyuser.oozie.groups</name>
+    <value>*</value>
+  </property>
+  <property>
+    <name>hadoop.home</name>
+    <value>/usr/lib/hadoop</value>
+  </property>
+  <property>
+    <name>hadoop.proxyuser.hadoop.hosts</name>
+    <value>*</value>
+  </property>
+  <property>
+    <name>hadoop.proxyuser.hadoop.groups</name>
+    <value>*</value>
+  </property>
+  <property>
+    <name>ha.zookeeper.session-timeout.ms</name>
+    <value>60000</value>
+  </property>
+  <property>
+    <name>hadoop.proxyuser.oozie.hosts</name>
+    <value>*</value>
   </property>
 </configuration>

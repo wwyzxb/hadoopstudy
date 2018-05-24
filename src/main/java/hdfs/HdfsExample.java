@@ -10,7 +10,6 @@ import java.io.IOException;
 public class HdfsExample {
     static {
         System.setProperty("HADOOP_USER_NAME", "wuxb");
-        System.setProperty("hadoop.home.dir", "D:\\study\\hadoop-2.7.2");
     }
 
     @Test
